@@ -3,7 +3,7 @@
 - 1.2 [Please take a look if you are using Linux/Mac](https://docs.lxp.lu/first-steps/connecting/)
 
 #### 2. Use your username to connect to MeluXina
-- 2.1 For example the below example shows the user of `u100490` 
+- 2.1 For example, the below example shows the user of `u100490` 
   ```
   $ ssh u100490@login.lxp.lu -p 8822
   ### or
@@ -50,7 +50,7 @@
   ...
   ...
   ```
-#### 7. Until now you are in the login node, now its time to do the dry run test
+#### 7. Until now, you are in the login node; now it is time to do the dry run test
 - 7.1 Reserve the interactive node for running/testing CUDA applications 
   ```
   $ salloc -A p200117 --res training_part1 --partition=gpu --qos default -N 1 -t 01:00:00
@@ -72,7 +72,7 @@
             304381       gpu interact  u100490    p200117  RUNNING       0:37     01:00:00      1 mel2131
  ```
 
-#### 8. Now we need to check simple CUDA application, if that is going to work for you:
+#### 8. Now we need to check a simple CUDA application if that is going to work for you:
  - 8.1 Go to folder `Dry-run-test`
 ```
 [u100490@login03 CUDA]$ cd Dry-run-test/
@@ -121,7 +121,7 @@ Hello-world.cu  module.sh
    Hello World from GPU!
  ```
 
-#### 11. Similarly for the hands-on session, we need to do the node reservation:
+#### 11. Similarly, for the hands-on session, we need to do the node reservation:
   ```
   $ salloc -A p200117 --res training_part2 --partition=gpu --qos default -N 1 -t 02:30:00
   ```
@@ -137,8 +137,8 @@ Hello-world.cu  module.sh
       salloc: Nodes mel2131 are ready for job
       ```
 
-#### 12. We will continue with our Hands on exercise
- - 12.1 For example, `Hello World` example, we do the following steps:
+#### 12. We will continue with our Hands-on exercise
+ - 12.1 For example, in the `Hello World` example, we do the following steps:
 
 ```
 [u100490@mel2063 CUDA]$ pwd
