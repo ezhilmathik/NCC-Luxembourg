@@ -1,8 +1,8 @@
 ### Time measurement
 
-In CUDA, the execution time can be measured by using the cuda events.
+In CUDA, the execution time can be measured by using the CUDA events.
 CUDA API events shall be created using `cudaEvent_t`, for example, `cudaEvent_t start, stop;`.
-And thereafter, it can be initiated by `cudaEventCreate(&start)` for start and similarly for stop,
+Afterwards, it can be initiated by `cudaEventCreate(&start)` for a start and similarly for stop,
 it can be created as `cudaEventCreate(&stop)`. 
 
 ??? "CUDA API"
@@ -14,7 +14,7 @@ it can be created as `cudaEventCreate(&stop)`.
     ```
 
 And it can be initialised to measure the timing as `cudaEventRecord(start,0)` and `cudaEventRecord(stop,0)`.
-Then the timings can be measured as float, for example, `cudaEventElapsedTime(&time, start, stop)`.
+Then the timings can be measured as floats, for example, `cudaEventElapsedTime(&time, start, stop)`.
 Finally, all the events should be destroyed using `cudaEventDestroy`, for example, `cudaEventDestroy(start)` and `cudaEventDestroy(start)`.
 
 ??? "CUDA API"
@@ -60,7 +60,7 @@ This will help the programmer optimise the code performance on the given archite
 For this, Nvidia offers three kinds of profiling options, they are:
 
 - [Nsight Compute](https://docs.nvidia.com/nsight-compute/index.html):
-CUDA application interactive [kernel profiler](https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html): This will give traces and events of the kernel calls; this further provides both [visual profile-GUI](https://docs.nvidia.com/nsight-compute/NsightCompute/index.html) and [Command Line Interface (CLI)](https://docs.nvidia.com/nsight-compute/NsightComputeCli/index.html) profiling options. **`ncu -o profile Application.exe`** command will create an output file **`profile.ncu-rep`** which can be opened using **`ncu-ui`**. 
+CUDA application is interactive [kernel profiler](https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html): This will give traces and events of the kernel calls; this further provides both [visual profile-GUI](https://docs.nvidia.com/nsight-compute/NsightCompute/index.html) and [Command Line Interface (CLI)](https://docs.nvidia.com/nsight-compute/NsightComputeCli/index.html) profiling options. **`ncu -o profile Application.exe`** command will create an output file **`profile.ncu-rep`** which can be opened using **`ncu-ui`**. 
 
  -  ??? example
     ```
@@ -98,7 +98,7 @@ CUDA application interactive [kernel profiler](https://docs.nvidia.com/nsight-co
     WRN   The grid for this launch is configured to execute only 16 blocks, which is less than the GPU's 80             
           multiprocessors. This can underutilize some multiprocessors. If you do not intend to execute this kernel      
           concurrently with other workloads, consider reducing the block size to have at least one block per            
-          multiprocessor or increase the size of the grid to fully utilize the available hardware resources. See the    
+          multiprocessor or increasing the size of the grid to fully utilize the available hardware resources. See the    
           Hardware Model (https://docs.nvidia.com/nsight-compute/ProfilingGuide/index.html#metrics-hw-model)            
           description for more details on launch configurations.                                                        
 
@@ -126,8 +126,8 @@ CUDA application interactive [kernel profiler](https://docs.nvidia.com/nsight-co
 Graphics application frame debugger and profiler: This is quite useful for analysing the profiling results through GUI. 
 
 - [Nsight Systems](https://developer.nvidia.com/nsight-systems):
-System-wide performance analysis tool: It is needed when we try to do heterogeneous computation profiling,
-for example, mixing MPI and OpenMP with CUDA. This will profile the system-wide application, that is, both CPU and GPU.
+System-wide performance analysis tool: This is needed when we try to do heterogeneous computation profiling,
+such as mixing MPI and OpenMP with CUDA. This will profile the system-wide application, that is, both CPU and GPU.
 To learn more about the command line options, please use **`$ nsys profile --help`**
 
  -  ??? example
@@ -249,6 +249,6 @@ Max.\ warps\ per\ SM}$
 
      - Occupancy: can you change **`numBlocks`** and **`blockSize`** in Occupancy.cu code
      and check how it affects or predicts the occupancy of the given Nvidia microarchitecture?
-     - Profiling: run your **`Matrix-multiplication.cu`** and **`Vector-addition.cu`** code and observe what you notice?
+     - Profiling: run your **`Matrix-multiplication.cu`** and **`Vector-addition.cu`** code and observe what you notice.
      for example, how to improve the occupancy? Or maximise a GPU utilization?
-     - Timing: using CUDA events API can you measure your GPU kernel execution, and compare how fast is your GPU computation compared to CPU computation?
+     - Timing: using CUDA events API, can you measure your GPU kernel execution and compare how fast is your GPU computation compared to CPU computation?
