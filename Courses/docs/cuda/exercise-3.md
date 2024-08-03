@@ -1,13 +1,13 @@
 We will now look into the basic matrix multiplication.
-In this example, we will perform the matrix multiplication. Matrix multiplication involves a nested loop. Again, most of the time, we might end up doing computation with a nested loop. Therefore, studying this example would be good practice for solving the nested loop in the future. 
+In this example, we will perform matrix multiplication. Matrix multiplication involves a nested loop. Again, we might end up doing computation with a nested loop most of the time. Therefore, studying this example would be good practice for solving the nested loop in the future. 
 
 <figure markdown>
 ![](../figures/mat.png){align=center width=500}
 <figcaption>b</figcaption>
 </figure>
 
- - Allocating the CPU memory for A, B, and C matrix.
-   Here we notice that the matrix is stored in a
+ - Allocating the CPU memory for the A, B, and C matrix.
+   Here, we notice that the matrix is stored in a
    1D array because we want to consider the same function concept for CPU and GPU.
 ```c
 // Initialize the memory on the host
@@ -30,7 +30,7 @@ cudaMalloc((void**)&d_b, sizeof(float) * (N*N));
 cudaMalloc((void**)&d_c, sizeof(float) * (N*N));
 ```
 
- - Now we need to fill the values for the matrix A and B.
+ - Now, we need to fill in the values for the matrix A and B.
 ```c
 // Initialize host matrix
 for(int i = 0; i < (N*N); i++)
@@ -480,7 +480,7 @@ free(c);
         // output
         $ g++ Matrix-multiplication.cc -o Matrix-multiplication
         $ ./Matrix-multiplication
-        Programme assumes that matrix (square matrix) size is N*N 
+        The programme assumes that the matrix (square matrix) size is N*N 
         Please enter the N size number 
         4
         16 16 16 16 
@@ -496,7 +496,7 @@ free(c);
         
         // execution
         $ ./Matrix-Multiplication-GPU
-        Programme assumes that matrix (square matrix) size is N*N 
+        The programme assumes that the matrix (square matrix) size is N*N 
         Please enter the N size number
         $ 256
         
@@ -507,10 +507,10 @@ free(c);
 ??? Question "Questions"
 
     - Right now, we are using the 1D array to represent the matrix. However, you can also do it with the 2D matrix.
-    Can you try with 2D array matrix multiplication with 2D thread block?
-    - Can you get the correct soltion if you remove the **`if ((row < width) && (col < width))`**
+    Can you try 2D array matrix multiplication with a 2D thread block?
+    - Can you get the correct solution if you remove the **`if ((row < width) && (col < width))`**
     condition from the **`__global__ void matrix_mul(float* d_a, float* d_b, float* d_c, int width)`** function?
-    - Please try with different thread blocks and different matrix sizes.
+    - Please try using different thread blocks and different matrix sizes.
     ```
     // Thread organization
     int blockSize = 32;
